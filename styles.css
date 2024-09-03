@@ -44,12 +44,12 @@ nav ul li a {
     background: url('https://amazonasatual.com.br/wp-content/uploads/2017/08/Perseidas2.gif') no-repeat center center/cover;
     color: #fff;
     text-align: center;
-    padding: 60px 60px;
+    padding: 60px 10%;
 }
 
 .hero h1 {
     margin: 0;
-    font-size: 3em;
+    font-size: 2.5em;
 }
 
 .section {
@@ -60,6 +60,7 @@ nav ul li a {
 
 .section h2 {
     margin-top: 0;
+    font-size: 1.8em;
 }
 
 footer {
@@ -89,16 +90,31 @@ footer p {
         padding: 10px;
         cursor: pointer;
     }
+
     nav ul {
         display: none; /* Oculta o menu por padrão em dispositivos móveis */
         flex-direction: column;
         width: 100%;
         text-align: center;
     }
+
     nav ul.active {
         display: flex; /* Mostra o menu quando a classe 'active' é adicionada */
     }
+
     nav ul li {
         margin: 10px 0;
+    }
+
+    .hero {
+        padding: 60px 5%;
+    }
+
+    .hero h1 {
+        font-size: 2em;
+    }
+
+    .section h2 {
+        font-size: 1.5em;
     }
 }
