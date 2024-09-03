@@ -16,6 +16,7 @@ nav {
     margin: 0;
     padding: 10px 0;
     background-color: #00509e;
+    position: relative; /* Garante que o menu será posicionado em relação ao nav */
 }
 
 nav button {
@@ -28,6 +29,14 @@ nav ul {
     margin: 0;
     display: flex;
     justify-content: center;
+    opacity: 0; /* Inicialmente invisível */
+    transform: translateY(-20px); /* Inicialmente acima do seu lugar */
+    transition: opacity 0.3s, transform 0.3s; /* Transições suaves */
+    position: absolute; /* Coloca o menu sobre o conteúdo */
+    top: 100%; /* Coloca o menu logo abaixo do nav */
+    left: 0;
+    right: 0;
+    background: #00509e; /* Fundo para o menu */
 }
 
 nav ul li {
@@ -77,29 +86,66 @@ footer p {
 /* Estilo do botão de alternância do menu para dispositivos móveis */
 #menu-toggle {
     display: none; /* Oculta o botão por padrão */
+    background-color: #00509e;
+    color: #fff;
+    border: none;
+    font-size: 24px;
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s; /* Transição suave para a cor de fundo e tamanho */
+}
+
+#menu-toggle:hover {
+    background-color: #003366;
+    transform: scale(1.1); /* Aumenta o tamanho do botão ao passar o mouse */
+}
+
+/* Animação de transição para o menu */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideOut {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
 }
 
 /* Estilo para mostrar o botão de alternância em dispositivos móveis */
 @media (max-width: 768px) {
     #menu-toggle {
         display: block;
-        background-color: #00509e;
-        color: #fff;
-        border: none;
-        font-size: 24px;
-        padding: 10px;
-        cursor: pointer;
-    }
-
-    nav ul {
-        display: none; /* Oculta o menu por padrão em dispositivos móveis */
-        flex-direction: column;
-        width: 100%;
-        text-align: center;
     }
 
     nav ul.active {
-        display: flex; /* Mostra o menu quando a classe 'active' é adicionada */
+        animation: slideIn 0.3s forwards; /* Animação ao exibir */
+        opacity: 1; /* Garante que o menu esteja visível */
+        transform: translateY(0); /* Garante que o menu esteja na posição correta */
+    }
+
+    nav ul.inactive {
+        animation: slideOut 0.3s forwards; /* Animação ao ocultar */
+        opacity: 0; /* Garante que o menu esteja invisível */
+        transform: translateY(-20px); /* Garante que o menu esteja acima do lugar */
+    }
+
+    nav ul {
+        display: flex; /* Mostra o menu em dispositivos móveis */
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
     }
 
     nav ul li {
