@@ -20,7 +20,19 @@ nav {
 }
 
 nav button {
-    display: none;
+    display: block; /* Mostra o botão em todos os dispositivos */
+    background-color: #00509e;
+    color: #fff;
+    border: none;
+    font-size: 24px;
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s; /* Transição suave para cor de fundo e tamanho */
+}
+
+nav button:hover {
+    background-color: #003366;
+    transform: scale(1.1); /* Aumenta o tamanho do botão ao passar o mouse */
 }
 
 nav ul {
