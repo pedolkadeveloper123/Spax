@@ -35,6 +35,33 @@ nav button:hover {
     transform: scale(1.1); /* Aumenta o tamanho do botão ao passar o mouse */
 }
 
+nav button2 {
+    display: block; /* Mostra o botão em todos os dispositivos */
+    background-color: #3cb371;
+    color: #fff;
+    border: none;
+    font-size: 24px;
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s; /* Transição suave para cor de fundo e tamanho */
+}
+
+nav button2:hover {
+    background-color: #3cb371;
+    transform: scale(1.1); /* Aumenta o tamanho do botão ao passar o mouse */
+}
+
+
+a {
+  color: blue;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+
 nav ul {
     list-style: none;
     padding: 0;
